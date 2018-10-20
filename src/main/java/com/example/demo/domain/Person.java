@@ -1,17 +1,16 @@
 package com.example.demo.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
-public class Person {
+public class Person implements Serializable {
 
     @Id
-    @GeneratedValue
-    Long id;
-
+    String id;
     String firstName;
     String lastName;
     String otherName;
@@ -26,39 +25,15 @@ public class Person {
     String birthdate;
     String emailAddress;
     String gender;
-    String primaryRole;
+    Role primaryRole;
+    @ManyToMany()
+    List<Role> roles;
 
-    RequirementStatus requirementStatus;
-    ComplianceStatus complianceStatus;
-
-    @ManyToMany
-    Role role;
-
-    public Person() {
-    }
-
-    public Person(String firstName, String lastName, String otherName, String birthdate, String cellPhone, String homePhone, String workPhone, String city, String state, String postalCode, String country, String streetAddress, RequirementStatus requirementStatus, ComplianceStatus complianceStatus) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.otherName = otherName;
-        this.birthdate = birthdate;
-        this.cellPhone = cellPhone;
-        this.homePhone = homePhone;
-        this.workPhone = workPhone;
-        this.city = city;
-        this.state = state;
-        this.postalCode = postalCode;
-        this.country = country;
-        this.streetAddress = streetAddress;
-        this.requirementStatus = requirementStatus;
-        this.complianceStatus = complianceStatus;
-    }
-
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -86,36 +61,12 @@ public class Person {
         this.otherName = otherName;
     }
 
-    public String getBirthdate() {
-        return birthdate;
+    public String getStreetAddress() {
+        return streetAddress;
     }
 
-    public void setBirthdate(String birthdate) {
-        this.birthdate= birthdate;
-    }
-
-    public String getCellPhone() {
-        return cellPhone;
-    }
-
-    public void setCellPhone(String cellPhone) {
-        this.cellPhone = cellPhone;
-    }
-
-    public String getHomePhone() {
-        return homePhone;
-    }
-
-    public void setHomePhone(String homePhone) {
-        this.homePhone = homePhone;
-    }
-
-    public String getWorkPhone() {
-        return workPhone;
-    }
-
-    public void setWorkPhone(String workPhone) {
-        this.workPhone = workPhone;
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
     }
 
     public String getCity() {
@@ -150,27 +101,67 @@ public class Person {
         this.country = country;
     }
 
-    public String getStreetAddress() {
-        return streetAddress;
+    public String getCellPhone() {
+        return cellPhone;
     }
 
-    public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
+    public void setCellPhone(String cellPhone) {
+        this.cellPhone = cellPhone;
     }
 
-    public RequirementStatus getRequirementStatus() {
-        return requirementStatus;
+    public String getHomePhone() {
+        return homePhone;
     }
 
-    public void setRequirementStatus(RequirementStatus requirementStatus) {
-        this.requirementStatus = requirementStatus;
+    public void setHomePhone(String homePhone) {
+        this.homePhone = homePhone;
     }
 
-    public ComplianceStatus getComplianceStatus() {
-        return complianceStatus;
+    public String getWorkPhone() {
+        return workPhone;
     }
 
-    public void setComplianceStatus(ComplianceStatus complianceStatus) {
-        this.complianceStatus = complianceStatus;
+    public void setWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
+    }
+
+    public String getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Role getPrimaryRole() {
+        return primaryRole;
+    }
+
+    public void setPrimaryRole(Role primaryRole) {
+        this.primaryRole = primaryRole;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.demo.domain;
+package com.example.demo.repository;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

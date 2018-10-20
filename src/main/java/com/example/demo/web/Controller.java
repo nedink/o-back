@@ -20,9 +20,6 @@ public class Controller {
     @Autowired
     public Controller(PersonRepository personRepository) {
         this.personRepository = personRepository;
-
-        Person person = new Person("First", "Name", "birthday", "841456123", "city", "state", "87234", "123 daeihr St", RequirementStatus.OPTIONAL, ComplianceStatus.IN_COMPLIANCE);
-        personRepository.save(person);
     }
 
     @GetMapping("/all")

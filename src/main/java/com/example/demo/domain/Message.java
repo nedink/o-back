@@ -1,23 +1,21 @@
 package com.example.demo.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class Message {
+public class Message implements Serializable {
 
     @Id
     String id;
     Person sender;
     String category;
     String subject;
-    ReceptionType receptionType;
-
-    public enum ReceptionType {
-        TO,
-        CC,
-        BCC
-    }
+    String date;
+    @Column(columnDefinition = "text")
+    String body;
 
     public String getId() {
         return id;
@@ -51,11 +49,19 @@ public class Message {
         this.subject = subject;
     }
 
-    public ReceptionType getReceptionType() {
-        return receptionType;
+    public String getDate() {
+        return date;
     }
 
-    public void setReceptionType(ReceptionType receptionType) {
-        this.receptionType = receptionType;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
     }
 }

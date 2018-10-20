@@ -1,26 +1,18 @@
 package com.example.demo.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class Role {
+public class Role implements Serializable {
 
+    @Id
     String name;
     String description;
-    Double safesportCost;
     RequirementStatus requirementStatus;
     ComplianceStatus complianceStatus;
-
-    public Role() {
-    }
-
-    public Role(String name, String description, Double safesportCost, RequirementStatus requirementStatus, ComplianceStatus complianceStatus) {
-        this.name = name;
-        this.description = description;
-        this.safesportCost = safesportCost;
-        this.requirementStatus = requirementStatus;
-        this.complianceStatus = complianceStatus;
-    }
+    Boolean isSafeSportRole;
 
     public String getName() {
         return name;
@@ -38,14 +30,6 @@ public class Role {
         this.description = description;
     }
 
-    public Double getSafesportCost() {
-        return safesportCost;
-    }
-
-    public void setSafesportCost(Double safesportCost) {
-        this.safesportCost = safesportCost;
-    }
-
     public RequirementStatus getRequirementStatus() {
         return requirementStatus;
     }
@@ -60,5 +44,13 @@ public class Role {
 
     public void setComplianceStatus(ComplianceStatus complianceStatus) {
         this.complianceStatus = complianceStatus;
+    }
+
+    public Boolean getSafeSportRole() {
+        return isSafeSportRole;
+    }
+
+    public void setSafeSportRole(Boolean safeSportRole) {
+        isSafeSportRole = safeSportRole;
     }
 }

@@ -1,11 +1,45 @@
 package com.example.demo.domain;
 
+import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import java.io.Serializable;
 
 @Entity
-public class Certificate {
+public class Certificate implements Serializable {
 
-    CertificationType type;
+    @EmbeddedId
+    Id id;
     String dateAward;
     String dateExpire;
+
+    @Embeddable
+    public static class Id implements Serializable {
+        CertificateType type;
+        Person person;
+    }
+
+    public Id getId() {
+        return id;
+    }
+
+    public void setId(Id id) {
+        this.id = id;
+    }
+
+    public String getDateAward() {
+        return dateAward;
+    }
+
+    public void setDateAward(String dateAward) {
+        this.dateAward = dateAward;
+    }
+
+    public String getDateExpire() {
+        return dateExpire;
+    }
+
+    public void setDateExpire(String dateExpire) {
+        this.dateExpire = dateExpire;
+    }
 }
