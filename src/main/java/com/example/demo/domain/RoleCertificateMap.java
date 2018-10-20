@@ -2,6 +2,7 @@ package com.example.demo.domain;
 
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 public class RoleCertificateMap implements Serializable {
@@ -13,7 +14,9 @@ public class RoleCertificateMap implements Serializable {
 
     @Embeddable
     public static class Id implements Serializable {
+        @ManyToOne
         Role role;
+        @ManyToOne
         CertificateType certificateType;
 
         public Role getRole() {

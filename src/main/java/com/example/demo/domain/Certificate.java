@@ -3,6 +3,7 @@ package com.example.demo.domain;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Entity
@@ -15,7 +16,9 @@ public class Certificate implements Serializable {
 
     @Embeddable
     public static class Id implements Serializable {
+        @ManyToOne
         CertificateType type;
+        @ManyToOne
         Person person;
 
         public CertificateType getType() {

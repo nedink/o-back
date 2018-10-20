@@ -3,6 +3,7 @@ package com.example.demo.domain;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -19,7 +20,9 @@ public class RoleMemberMap implements Serializable {
 
     @Embeddable
     public static class Id implements Serializable {
+        @ManyToOne
         Role role;
+        @ManyToOne
         Person person;
 
         public Role getRole() {

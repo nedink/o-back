@@ -2,6 +2,7 @@ package com.example.demo.domain;
 
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 public class PersonMessageMap implements Serializable {
@@ -13,7 +14,9 @@ public class PersonMessageMap implements Serializable {
 
     @Embeddable
     public static class Id implements Serializable {
+        @ManyToOne
         Person person;
+        @ManyToOne
         Message message;
 
         public Person getPerson() {
