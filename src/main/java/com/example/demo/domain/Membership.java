@@ -20,6 +20,22 @@ public class Membership implements Serializable {
     public static class Id implements Serializable {
         Person person;
         Organization organization;
+
+        public Person getPerson() {
+            return person;
+        }
+
+        public void setPerson(Person person) {
+            this.person = person;
+        }
+
+        public Organization getOrganization() {
+            return organization;
+        }
+
+        public void setOrganization(Organization organization) {
+            this.organization = organization;
+        }
     }
 
     public Id getId() {

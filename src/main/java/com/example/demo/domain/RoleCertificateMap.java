@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import java.io.Serializable;
 
@@ -10,9 +11,26 @@ public class RoleCertificateMap implements Serializable {
 
     String requirement;
 
-    public static class Id {
+    @Embeddable
+    public static class Id implements Serializable {
         Role role;
         CertificateType certificateType;
+
+        public Role getRole() {
+            return role;
+        }
+
+        public void setRole(Role role) {
+            this.role = role;
+        }
+
+        public CertificateType getCertificateType() {
+            return certificateType;
+        }
+
+        public void setCertificateType(CertificateType certificateType) {
+            this.certificateType = certificateType;
+        }
     }
 
     public Id getId() {

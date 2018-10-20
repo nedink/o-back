@@ -17,6 +17,22 @@ public class Certificate implements Serializable {
     public static class Id implements Serializable {
         CertificateType type;
         Person person;
+
+        public CertificateType getType() {
+            return type;
+        }
+
+        public void setType(CertificateType type) {
+            this.type = type;
+        }
+
+        public Person getPerson() {
+            return person;
+        }
+
+        public void setPerson(Person person) {
+            this.person = person;
+        }
     }
 
     public Id getId() {

@@ -14,7 +14,8 @@ public class Message implements Serializable {
     String category;
     String subject;
     String date;
-    @Column(columnDefinition = "text")
+//    @Column(columnDefinition = "clob")
+//    @Column(columnDefinition = "text")
     String body;
 
     public String getId() {

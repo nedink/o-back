@@ -26,8 +26,6 @@ public class Person implements Serializable {
     String emailAddress;
     String gender;
     Role primaryRole;
-    @ManyToMany()
-    List<Role> roles;
 
     public String getId() {
         return id;
@@ -157,11 +155,4 @@ public class Person implements Serializable {
         this.primaryRole = primaryRole;
     }
 
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
 }

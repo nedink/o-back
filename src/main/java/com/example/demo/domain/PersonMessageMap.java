@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import java.io.Serializable;
 
@@ -10,9 +11,26 @@ public class PersonMessageMap implements Serializable {
 
     ReceiverType receiverType;
 
-    public static class Id {
+    @Embeddable
+    public static class Id implements Serializable {
         Person person;
         Message message;
+
+        public Person getPerson() {
+            return person;
+        }
+
+        public void setPerson(Person person) {
+            this.person = person;
+        }
+
+        public Message getMessage() {
+            return message;
+        }
+
+        public void setMessage(Message message) {
+            this.message = message;
+        }
     }
 
     public enum ReceiverType {

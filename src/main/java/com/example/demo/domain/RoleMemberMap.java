@@ -21,6 +21,22 @@ public class RoleMemberMap implements Serializable {
     public static class Id implements Serializable {
         Role role;
         Person person;
+
+        public Role getRole() {
+            return role;
+        }
+
+        public void setRole(Role role) {
+            this.role = role;
+        }
+
+        public Person getPerson() {
+            return person;
+        }
+
+        public void setPerson(Person person) {
+            this.person = person;
+        }
     }
 
     public Id getId() {
