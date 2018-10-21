@@ -2,7 +2,9 @@ package com.example.demo.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Role implements Serializable {
@@ -53,4 +55,5 @@ public class Role implements Serializable {
     public void setSafeSportRole(Boolean safeSportRole) {
         isSafeSportRole = safeSportRole;
     }
+
 }

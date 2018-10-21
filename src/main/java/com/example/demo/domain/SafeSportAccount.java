@@ -1,26 +1,29 @@
 package com.example.demo.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.UUID;
 
 @Entity
 public class SafeSportAccount implements Serializable {
 
     @Id
-    String id;
+    @GeneratedValue
+    UUID id;
     Date dateCreated;
     String status;
     String username;
     String emailAddress;
     Person person;
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

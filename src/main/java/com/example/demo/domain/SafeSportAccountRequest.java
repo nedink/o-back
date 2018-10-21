@@ -7,12 +7,13 @@ import javax.persistence.ManyToMany;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 public class SafeSportAccountRequest implements Serializable {
 
     @Id
-    String id;
+    UUID id;
     Person requestee;
     Date dateSubmitted;
     @Column(columnDefinition = "decimal(12,2)")
@@ -36,11 +37,11 @@ public class SafeSportAccountRequest implements Serializable {
     @ManyToMany
     List<Role> roles;
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

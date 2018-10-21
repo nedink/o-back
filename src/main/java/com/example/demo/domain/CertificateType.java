@@ -1,16 +1,18 @@
 package com.example.demo.domain;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 
+@Entity
 public class CertificateType implements Serializable {
 
     @Id
     String name;
     Integer yearsValid;
     @Column(columnDefinition = "text")
-    String instuctions;
+    String instructions;
 
     public String getName() {
         return name;
@@ -28,11 +30,11 @@ public class CertificateType implements Serializable {
         this.yearsValid = yearsValid;
     }
 
-    public String getInstuctions() {
-        return instuctions;
+    public String getInstructions() {
+        return instructions;
     }
 
-    public void setInstuctions(String instuctions) {
-        this.instuctions = instuctions;
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 }

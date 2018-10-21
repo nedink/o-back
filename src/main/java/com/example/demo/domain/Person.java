@@ -1,16 +1,17 @@
 package com.example.demo.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import java.io.Serializable;
-import java.util.List;
+import java.util.UUID;
 
 @Entity
 public class Person implements Serializable {
 
     @Id
-    String id;
+    @GeneratedValue
+    UUID id;
     String firstName;
     String lastName;
     String otherName;
@@ -27,11 +28,32 @@ public class Person implements Serializable {
     String gender;
     Role primaryRole;
 
-    public String getId() {
+    public Person() {
+    }
+
+    public Person(String firstName, String lastName, String otherName, String streetAddress, String city, String state, String postalCode, String country, String cellPhone, String homePhone, String workPhone, String birthdate, String emailAddress, String gender, Role primaryRole) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.otherName = otherName;
+        this.streetAddress = streetAddress;
+        this.city = city;
+        this.state = state;
+        this.postalCode = postalCode;
+        this.country = country;
+        this.cellPhone = cellPhone;
+        this.homePhone = homePhone;
+        this.workPhone = workPhone;
+        this.birthdate = birthdate;
+        this.emailAddress = emailAddress;
+        this.gender = gender;
+        this.primaryRole = primaryRole;
+    }
+
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -155,4 +177,25 @@ public class Person implements Serializable {
         this.primaryRole = primaryRole;
     }
 
+    @Override
+    public String toString() {
+        return "Person{" +
+               "id='" + id + '\'' +
+               ", firstName='" + firstName + '\'' +
+               ", lastName='" + lastName + '\'' +
+               ", otherName='" + otherName + '\'' +
+               ", streetAddress='" + streetAddress + '\'' +
+               ", city='" + city + '\'' +
+               ", state='" + state + '\'' +
+               ", postalCode='" + postalCode + '\'' +
+               ", country='" + country + '\'' +
+               ", cellPhone='" + cellPhone + '\'' +
+               ", homePhone='" + homePhone + '\'' +
+               ", workPhone='" + workPhone + '\'' +
+               ", birthdate='" + birthdate + '\'' +
+               ", emailAddress='" + emailAddress + '\'' +
+               ", gender='" + gender + '\'' +
+               ", primaryRole=" + primaryRole +
+               '}';
+    }
 }
